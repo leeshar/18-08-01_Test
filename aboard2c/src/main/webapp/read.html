@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	var email = "abcd@naver.com";
+	var email1 = email.substr(0, email.indexOf("@"));
+	var email2 = email.substr(email.indexOf("@")+1);
+	var tel = "01112345678";
+	var tel1 = tel.substr(0,3);
+	var tel2 = tel.substr(3,4);
+	var tel3 = tel.substr(7);
+</script>
+<style>
+	.first {
+		background-color: #ddd;
+	}
+</style>
+</head>
+<body>
+	<table>
+		<tr><td class="first">이름</td><td><input type="text" id="irum" name="irum">
+			<button>이름변경</button><span id="irum_helper"></span></td></tr>
+		<tr><td class="first">아이디</td><td><span id="id"></span></td></tr>
+		<tr><td class="first">생년월일</td><td><span id="birthDate"></span></td></tr>
+		<tr><td class="first">비밀번호</td><td>
+			<button id="changePwd">비밀번호 수정</button>
+			<div id="pwdChangeDiv">
+				<input type="password" id="pwd" name="oldPwd" placeholder="현재 비밀번호">
+				<span id="oldPwd_helper"></span> 
+				<br>
+				<input type="password" id="newPwd" name="newPwd" placeholder="새 비밀번호">
+				<span id="newPwd_helper"></span> 
+				<br>
+				<input type="password" id="newPwd2" placeholder="새 비밀번호 확인">
+				<span id="newPwd2_helper"></span> 
+				<br>
+			</div>
+			</td></tr>
+		<tr><td class="first">이메일</td><td>
+				<input type="text" id="email1"> @ <input type="text" id="email2">
+				<select id="selectEmail">
+					<option>직접 입력</option>
+					<option>naver.com</option>
+					<option>daum.net</option>
+					<option>gmail.com</option>
+				</select>
+			</td></tr>
+		<tr><td class="first">연락처</td><td>
+				<input type="text" id="tel1" maxlength="3" size="10">
+				-<input type="text" id="tel2" maxlength="4" size="10">
+				-<input type="text" id="tel3" maxlength="4" size="10">
+			</td></tr>	
+	</table>
+	<button id="update">변경하기</button>
+</body>
+</html>

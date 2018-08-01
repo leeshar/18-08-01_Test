@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.aboard2.dao.UserRepository">
+	<select id="idCheck" resultType="string">
+		select id from users where id=#{id} and rownum=1
+	</select>
+
+	<insert id="insertUser">
+		insert into users(id, pwd, irum, email, tel, birth_date, enabled, login_cnt, write_cnt) 
+		values(#{id}, #{pwd}, #{irum}, #{email}, #{tel}, #{birthDate}, '1', 0, 0)
+	</insert>
+	 
+	<insert id="insertAuthority">
+		insert into authority values(#{id}, #{authority})
+	</insert>
+		
+	<select id="read" resultType="user">
+		select id, irum, email, tel, birth_date birthDate, 
+		login_cnt loginCnt, write_cnt writeCnt from users where id=#{id} and rownum=1
+	</select>
+	
+	<select id="getPwd" resultType="string">
+		select pwd from users where id=#{id} and rownum=1
+	</select>
+	
+	<update id="pwdChange">
+		update users set pwd=#{pwd} where id=#{id} and rownum = 1
+	</update>
+	<update id="irumChange">
+		update users set irum=#{irum} where id=#{id} and rownum = 1
+	</update>
+	
+	<update id="update">
+		update users set irum=#{irum}, email=#{email}, tel=#{tel}
+		where id=#{id} and rownum=1
+	</update>
+</mapper>
+
+
+
+
